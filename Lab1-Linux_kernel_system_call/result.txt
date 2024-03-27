@@ -1,0 +1,41 @@
+jslee@jslee-VirtualBox:~/test$ gcc call_my_queue.c -o call_my_queue
+jslee@jslee-VirtualBox:~/test$ ./call_my_queue
+Enqueue : 1
+Enqueue : 2
+Enqueue : 3
+Enqueue : 3
+Dequeue : 1
+Dequeue : 2
+Dequeue : 3
+
+jslee@jslee-VirtualBox:~/test$ dmesg
+[  489.675178] [System call] oslab_enqueue(); -----
+[  489.675196] Queue Front---------------------
+[  489.675197] 1
+[  489.675198] Queue Rear---------------------
+[  489.675258] [System call] oslab_enqueue(); -----
+[  489.675259] Queue Front---------------------
+[  489.675259] 1
+[  489.675259] 2
+[  489.675259] Queue Rear---------------------
+[  489.675261] [System call] oslab_enqueue(); -----
+[  489.675261] Queue Front---------------------
+[  489.675261] 1
+[  489.675262] 2
+[  489.675262] 3
+[  489.675262] Queue Rear---------------------
+[  489.675263] [Error] - 3 is already existing value
+[  489.675264] [System call] oslab_dequeue(); -----
+[  489.675265] Queue Front---------------------
+[  489.675265] 2
+[  489.675265] 3
+[  489.675265] Queue Rear---------------------
+[  489.675266] [System call] oslab_dequeue(); -----
+[  489.675266] Queue Front---------------------
+[  489.675267] 3
+[  489.675267] Queue Rear---------------------
+[  489.675268] [System call] oslab_dequeue(); -----
+[  489.675269] Queue Front---------------------
+[  489.675269] Queue Rear---------------------
+
+
